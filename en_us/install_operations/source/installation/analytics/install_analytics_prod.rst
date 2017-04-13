@@ -17,12 +17,13 @@ but still has a few pieces that are manual.
 
 .. note::
 
-     Installation advice
-     Don't run it on an existing edx platform. Yarn nodemanager will collide with xqueue service
+     Installation advice: Don't run it on an existing edx platform. Yarn nodemanager will collide with xqueue service
      on port 8040. Tasks will be submitted but they will never be processed.
-     For reference see: 
-     yarn nodemanager default port -> https://goo.gl/1uy6kx 
-     xqueue default port -> https://goo.gl/Ra5g3R.
+
+     For reference see:
+
+     - ``yarn nodemanager default port`` -> https://goo.gl/1uy6kx 
+     - ``xqueue default port`` -> https://goo.gl/Ra5g3R.
      
 .. _Installation Overview:
 
@@ -47,11 +48,11 @@ Below is a script to install all the things.
 
 .. note::
 
-   #. It expects to find a tracking.log file in the home directory – put an LMS log there before your run this.
+   #. It expects to find a tracking.log file in the home directory – put an LMS log there before you run this.
    #. You'll need to manually run the OAuth management command on your LMS system – see below.
    #. You may need to do some network config to make sure your machines have the right ports open. See below.
 
-Run the following on a new Ubuntu 12.04 box as a user that has sudo priveleges.
+Run the following on a new Ubuntu 16.04 box as a user that has sudo privileges.
 
    .. code-block:: bash
 
@@ -112,7 +113,9 @@ Run the following on a new Ubuntu 12.04 box as a user that has sudo priveleges.
       
       echo "Run the pipeline"
       # Ensure you're in the pipeline virtualenv
-      remote-task --host localhost --repo https://github.com/edx/edx-analytics-pipeline --user ubuntu --override-config $HOME/edx-analytics-pipeline/config/devstack.cfg --wheel-url http://edx-wheelhouse.s3-website-us-east-1.amazonaws.com/Ubuntu/precise --remote-name analyticstack --wait TotalEventsDailyTask --interval 2016 --output-root hdfs://localhost:9000/output/ --local-scheduler
+      remote-task --host localhost --repo https://github.com/edx/edx-analytics-pipeline --user ubuntu \
+        --override-config $HOME/edx-analytics-pipeline/config/devstack.cfg --remote-name analyticstack \
+	--wait TotalEventsDailyTask --interval 2016 --output-root hdfs://localhost:9000/output/ --local-scheduler
       
       echo "If you got this far without error, you should try running the real pipeline tasks listed/linked below"
 
@@ -252,14 +255,13 @@ Installation Details
        # Ensure you're in the pipeline virtualenv 
        remote-task --host localhost \
          --repo https://github.com/edx/edx-analytics-pipeline \
-	 --user ubuntu \
-	 --override-config $HOME/edx-analytics-pipeline/config/devstack.cfg \
-	 --wheel-url http://edx-wheelhouse.s3-website-us-east-1.amazonaws.com/Ubuntu/precise \
-	 --remote-name analyticstack \
-	 --wait TotalEventsDailyTask \
-	 --interval 2015 \
-	 --output-root hdfs://localhost:9000/output/ \
-	 --local-scheduler
+         --user ubuntu \
+         --override-config $HOME/edx-analytics-pipeline/config/devstack.cfg \
+         --remote-name analyticstack \
+         --wait TotalEventsDailyTask \
+         --interval 2015 \
+         --output-root hdfs://localhost:9000/output/ \
+         --local-scheduler
 
 #. Finish the rest of the pipeline configuration
 
@@ -268,15 +270,15 @@ Installation Details
        sudo vim /edx/etc/edx-analytics-pipeline/input.json
        # put in the right url and credentials for your LMS database
 
-   b. Test it ::
+   b. Test it (Note the ``--skip-setup`` option can be added to subsequent calls to ``remote-task`` in cases where the "setup" does  not need to be repeated). ::
 
 	 remote-task --host localhost \
-	   --user ubuntu \
-	   --remote-name analyticstack \
-	   --skip-setup \
-	   --wait ImportEnrollmentsIntoMysql \
-	   --interval 2016 \
-	   --local-scheduler
+           --user ubuntu \
+           --remote-name analyticstack \
+           --skip-setup \
+           --wait CourseEnrollmentEventsTask \
+           --interval 2016 \
+           --local-scheduler
 
    c. Confirm the test succeeded ::
 
@@ -317,7 +319,7 @@ Installation Details
 
    a. Create a cron job that copies all of the logs from the LMS servers regularly.
 
-   b. Create a job to copy logsto S3 and use S3 as your HDFS store (and update your config accordingly).
+   b. Create a job to copy logs to S3 and use S3 as your HDFS store (and update your config accordingly).
 
 #. Schedule `launch-task` jobs to actually run all the pipeline tasks regularly.
 
@@ -339,12 +341,7 @@ Installation Details
 Resources
 ************
 - Link to ansible playbook we use: https://github.com/edx/configuration/blob/master/playbooks/edx-east/analytics_single.yml
-- Devstack docs: http://edx.readthedocs.org/projects/edx-installing-configuring-and-running/en/latest/devstack/analytics_devstack.html
+- Analytics devstack docs: http://edx.readthedocs.io/projects/edx-installing-configuring-and-running/en/latest/installation/analytics/index.html
 - https://github.com/edx/edx-analytics-configuration
-- http://edx.readthedocs.io/projects/edx-installing-configuring-and-running/en/latest/installation/analytics/index.html (where this doc should live)
 - https://github.com/edx/edx-analytics-pipeline/wiki/Tasks-to-Run-to-Update-Insights
-- Mailing list: https://groups.google.com/forum/#!forum/openedx-analytics
-
-
-
-
+- Mailing list: https://groups.google.com/forum/#!forum/openedx-ops
