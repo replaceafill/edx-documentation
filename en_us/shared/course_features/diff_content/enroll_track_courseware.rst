@@ -4,7 +4,7 @@
 Creating Course Content for Specific Enrollment Tracks
 #######################################################
 
-This section provides information about setting up content for specific
+This section provides information about creating different content for specific
 enrollment tracks.
 
 .. contents::
@@ -16,7 +16,7 @@ Overview
 *********
 
 If your course has more than one enrollment track, you can create different
-course experiences for learners in different cohorts.
+course experiences for learners in each enrollment track.
 
 You do this by designating specific components in your course as visible only
 to learners in one or more of the enrollment tracks. Then, learners in each of
@@ -30,11 +30,11 @@ Complete these steps to create track-specific content in your course.
 #. Preview track-specific course content
 
 
-.. _About Enrollment Tracks:
+.. _About Enrollment Track Groups:
 
-********************
-Enrollment Tracks
-********************
+**************************
+Enrollment Track Groups
+**************************
 
 .. Implications of learners changing tracks - what happens to their current
 .. score and progress? Is it kept? Visibility of course content will change,
@@ -45,20 +45,36 @@ Enrollment Tracks
 .. enroll?
 
 
-Courses can offer multiple enrollment tracks, such as a non-certificate "audit"
-track and a "verified" track that offers certificates.
+If your course offers more than one enrollment track (for example, a non-
+certificate track and a certificate track), an enrollment track group is
+automatically created for each enrollment track. You see these groups in
+Studio, on the **Group Configurations** page.
+
+Learners who enroll in your course in a particular enrollment track are
+automatically included in the appropriate enrollment track group.
+
+======================================
+When Learners Change Enrollment Tracks
+======================================
 
 Learners select an enrollment track when they first enroll in a course, and in
-some cases they will change enrollment tracks during the course run, for
+many cases they will change enrollment tracks during the course run, for
 example, to upgrade from the audit track to the verified track.
 
 In a course where you offer differentiated content based on enrollment track,
 when learners change tracks during the course run, the content that they see
-changes. Learners see only the content that you have designated as being
-available to their current enrollment track. However, if they have already
-completed course content in a different enrollment track, their existing
-grades are carried over and are reflected on the course Progress page.
+changes. As soon as they change enrollment tracks, learners see only the
+content that you make available to all learners and to their current
+enrollment track.
 
+As you design your course using differentiated content based on enrollment
+track, be aware of maintaining the continuity of learner grades and experience
+when learners change from one enrollment track to another.
+
+.. warning:: If a learner changes enrollment tracks after having completed some
+   course content in a different enrollment track, only grades from content
+   that was available to all learners, are kept and reflected in the learner's
+   progress page.
 
 
 .. _Specify Components as Visible Only to Certain Enrollment Tracks:
@@ -144,11 +160,12 @@ these steps.
 
 #. In Studio, select **Settings**, then select **Group Configurations**.
 
-#. On the **Group Configurations** page, locate the enrollment track for which
-   you want to view the usage. Enrollment tracks are only shown on this page
-   if more than one track exists in the course.
+#. On the **Group Configurations** page, locate the enrollment track group for
+   which you want to view the usage. Enrollment track groups are shown on this
+   page only if more than one enrollment track exists in the course. Each
+   enrollment track group corresponds to an enrollment track.
 
-   The enrollment track's box displays the number of units that are designated for learners in the track.
+   The enrollment track group's box displays the number of units that are designated for learners in the track.
 
 #. Click the enrollment track name to view the names of units and components
    that are designated for learners in the track.
