@@ -181,7 +181,7 @@ content.
         **Staff** view, you also see content that is :ref:`Visible to Staff
         Only`.
 
-    * - :ref:`Student<Student View>`
+    * - :ref:`Learner<Student View>`
       - You see content that has a status of :ref:`Published and Live`, and
         that is intended for all learners. For example, you see content that
         is not intended for a specific cohort group. In **Student** view, you
@@ -191,16 +191,26 @@ content.
         or :ref:`Draft (Unpublished Changes)`. In **Student** view, you do not
         see content that is :ref:`Visible to Staff Only`.
 
-    * - :ref:`Specific Student<Specific Student View>`
+    * - :ref:`Specific Learner<Specific Student View>`
       - You see content that has a status of :ref:`Published and Live`, and is
         intended for the specific learner whose email or username you enter.
       - **Specific student** view is not available for unpublished content or
         if the course has not started.
 
-    * - :ref:`Student in a Specified Content Group<Student in Content Group
+    * - :ref:`Learner in a Specific Content Group<Student in Content Group
         View>`
       - You see content that has a status of :ref:`Published and Live` that
-        would be available to learners who belong to the specified content
+        would be available to learners who belong to the specifid content
+        group.
+      - In addition to the content you would see in "View Live" mode, you also
+        see content that has a status of :ref:`Draft (Never Published)` or
+        :ref:`Draft (Unpublished Changes)` that would be available to learners
+        who belong to the specified content group.
+
+    * - :ref:`Learner in an Enrollment Track<Student in Content Group
+        View>`
+      - You see content that has a status of :ref:`Published and Live` that
+        would be available to learners who belong to the specific content
         group.
       - In addition to the content you would see in "View Live" mode, you also
         see content that has a status of :ref:`Draft (Never Published)` or
@@ -297,3 +307,19 @@ designed for learners in a specific content group is displaying as intended.
 For details about content groups, creating and previewing cohort-specific
 content, see :ref:`About Content Groups`, :ref:`Cohorted Courseware Overview`,
 and :ref:`Viewing Cohort Specific Courseware`.
+
+.. _Student in Enrollment Track Group View:
+
+=========================================
+Student in an Enrollment Track Group View
+=========================================
+
+This view displays content as a learner who belongs to the specified content
+group would experience it. You can use this view to verify that content
+designed for learners in a specific content group is displaying as intended.
+
+For details about content groups, creating and previewing cohort-specific
+content, see :ref:`About Content Groups`, :ref:`Cohorted Courseware Overview`,
+and :ref:`Viewing Cohort Specific Courseware`.
+
+

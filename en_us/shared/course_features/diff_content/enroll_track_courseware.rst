@@ -140,7 +140,8 @@ content is visible only to specific groups of learners.
 
 For details about previewing your course to ensure that learners in a
 particular enrollment track correctly see the content intended for them, see
-:ref:`XXXXXX`.
+:ref:`Viewing Track Specific Courseware` and :ref:`Roles for Viewing Course
+Content`.
 
 .. note:: In addition to visibility settings for content groups, a learner's
    ability to see a course component also depends on whether it is marked as
@@ -204,5 +205,5 @@ group would, by selecting the **View this course as** option for a learner in
 the desired enrollment track, as described in :ref:`Roles for Viewing Course
 Content`.
 
-For details about testing course content, see :ref:`Testing Your Course
-Content`.
+For details see :ref:`Testing Your Course Content` and :ref:`Roles for Viewing
+Course Content`.
